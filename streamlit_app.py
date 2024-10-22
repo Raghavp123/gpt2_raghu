@@ -30,7 +30,7 @@ tokens_to_generate = st.number_input("Specify number of tokens:", value=25)
 
 # Generate button
 if st.button("Generate Text"):
- if prompt:
+ if user_prompt:
     # Creative
     st.subheader("Creative Output:")
     creative_output = generate_text(user_prompt, tokens_to_generate, temp_value=1.2)
