@@ -16,6 +16,7 @@ def generate_text(prompt, num_tokens, temp_value):
         max_length=num_tokens,
         temperature=temp_value,
         num_return_sequences=1
+        do_sample=True
     )
 
     # Decode and return the generated text
