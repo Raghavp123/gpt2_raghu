@@ -26,11 +26,11 @@ st.title("GPT-2 Predicted and Creative texts")
 # Text input user's prompt
 user_prompt = st.text_input("Enter your prompt:", value="")
 # Token length input
-tokens_to_generate = st.number_input("Specify number of tokens:", value=50)
+tokens_to_generate = st.number_input("Specify number of tokens:", value=25)
 
 # Generate button
 if st.button("Generate Text"):
-    
+ if prompt:
     # Creative
     st.subheader("Creative Output:")
     creative_output = generate_text(user_prompt, tokens_to_generate, temp_value=1.2)
@@ -38,6 +38,6 @@ if st.button("Generate Text"):
 
     # Predictable
     st.subheader("Predictable Output:")
-    predictable_output = generate_text(user_prompt, tokens_to_generate, temp_value=0.2)
+    predictable_output = generate_text(user_prompt, tokens_to_generate, temp_value=0.1)
     st.write(predictable_output)
 
