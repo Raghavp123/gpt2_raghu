@@ -15,7 +15,7 @@ def generate_text(prompt, num_tokens, temp_value):
         input_ids,
         max_length=num_tokens,
         temperature=temp_value,
-        num_return_sequences=1
+        num_return_sequences=1,
         do_sample=True
     )
 
