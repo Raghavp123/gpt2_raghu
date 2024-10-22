@@ -1,19 +1,15 @@
 import streamlit as st
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
-
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 # Load pre-trained GPT-2 model and tokenizer
 model_gpt2 = GPT2LMHeadModel.from_pretrained("gpt2")
 tokenizer_gpt2 = GPT2Tokenizer.from_pretrained("gpt2")
 
-
 # Define a function for generating text
-# Ref: https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-generation/run_generation.py
 def generate_text(prompt, num_tokens, temp_value):
     # Tokenize and encode the prompt
     input_ids = tokenizer_gpt2.encode(prompt, return_tensors='pt')
-
     # Generate text with the specified temperature and length
     generated_outputs = model_gpt2.generate(
         input_ids,
@@ -26,24 +22,22 @@ def generate_text(prompt, num_tokens, temp_value):
     return tokenizer_gpt2.decode(generated_outputs[0], skip_special_tokens=True)
 
 # Streamlit App Interface
-# Ref: https://docs.streamlit.io
-st.title("GPT-2 Text Generation - JP's App")
-
-# Text input for the user's prompt
-user_prompt = st.text_input("Enter your prompt:", value="In a faraway land")
-
+st.title("GPT-2 Predicted and Creative texts")
+# Text input user's prompt
+user_prompt = st.text_input("Enter your prompt:", value="Type here")
 # Token length input
 tokens_to_generate = st.number_input("Specify number of tokens:", min_value=5, max_value=100, value=50)
 
 # Generate button
 if st.button("Generate Text"):
     
-    # Creative generation (high temperature)
+    # Creative
     st.subheader("Creative Output:")
     creative_output = generate_text(user_prompt, tokens_to_generate, temp_value=1.4)
     st.write(creative_output)
 
-    # Predictable generation (low temperature)
+    # Predictable
     st.subheader("Predictable Output:")
     predictable_output = generate_text(user_prompt, tokens_to_generate, temp_value=0.3)
     st.write(predictable_output)
+
