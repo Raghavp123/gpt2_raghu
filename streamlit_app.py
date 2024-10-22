@@ -26,7 +26,7 @@ st.title("GPT-2 Predicted and Creative texts")
 # Text input user's prompt
 user_prompt = st.text_input("Enter your prompt:", value="Type here")
 # Token length input
-tokens_to_generate = st.number_input("Specify number of tokens:", min_value=5, max_value=100, value=50)
+tokens_to_generate = st.number_input("Specify number of tokens:", value=50)
 
 # Generate button
 if st.button("Generate Text"):
