@@ -33,11 +33,11 @@ if st.button("Generate Text"):
     
     # Creative
     st.subheader("Creative Output:")
-    creative_output = generate_text(user_prompt, tokens_to_generate, temp_value=1.2,top_k_value=50)
+    creative_output = generate_text(user_prompt, tokens_to_generate, temp_value=1.2)
     st.write(creative_output)
 
     # Predictable
     st.subheader("Predictable Output:")
-    predictable_output = generate_text(user_prompt, tokens_to_generate, temp_value=0.7,top_k_value=10)
+    predictable_output = generate_text(user_prompt, tokens_to_generate, temp_value=0.7)
     st.write(predictable_output)
 
