@@ -38,6 +38,6 @@ if st.button("Generate Text"):
 
     # Predictable
     st.subheader("Predictable Output:")
-    predictable_output = generate_text(user_prompt, tokens_to_generate, temp_value=0.7)
+    predictable_output = generate_text(user_prompt, tokens_to_generate, temp_value=0.2)
     st.write(predictable_output)
 
