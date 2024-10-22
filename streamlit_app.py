@@ -24,7 +24,7 @@ def generate_text(prompt, num_tokens, temp_value):
 # Streamlit App Interface
 st.title("GPT-2 Predicted and Creative texts")
 # Text input user's prompt
-user_prompt = st.text_input("Enter your prompt:", value="Type here")
+user_prompt = st.text_input("Enter your prompt:", value="")
 # Token length input
 tokens_to_generate = st.number_input("Specify number of tokens:", value=50)
 
